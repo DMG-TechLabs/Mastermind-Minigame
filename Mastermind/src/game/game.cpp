@@ -23,7 +23,7 @@ string render(string word) {
     }
 
     while (true) {
-        system("clear");
+        Text::clearScreen();
         for (int i = 0; i < numOfCharacters; i++) {
             printCharacter(selected, i, color, characters.at(indexes[i]));
             // cout << characters.at(*indexes.at(i)) << " ";
