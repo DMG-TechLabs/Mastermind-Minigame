@@ -4,6 +4,7 @@
 
 #include "../text/text.h"
 #include "../ui/controls.h"
+#include "checks.h"
 
 void printCharacter(int selectedItem, int index, int color, char character);
 string makeWord(int *indexes, string characters, int length);
@@ -60,11 +61,14 @@ string render(string word) {
 }
 
 void start() {
-    std::string key = "abcdefgh";
-    string user_try = render(key);;
-
+    std::string key = "abaaaaaa";
+    std::string user_try = render(key);
+    vector<int> correct = checks(key, user_try);
 
     cout << endl << user_try << endl;
+    cout << correct.at(0) << " correct but in the wrong position" << endl;
+    cout << correct.at(1) << " correct and in the correct posstion" << endl;
+     
 }
 
 

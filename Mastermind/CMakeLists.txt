@@ -23,6 +23,10 @@ set(SOURCES
 
     src/game/game.h
     src/game/game.cpp
+    
+    src/game/checks.h
+    src/game/checks.cpp
+
 
     src/main.cpp
 )
