@@ -16,6 +16,7 @@ vector<int> checks(string key, string user_try){
     int correct = 0;
     int found;
     int times[string_len];
+    int f_correct=0;
 
     for(int i=0;i<string_len;i++){
         full_correct[i] = 0;
@@ -35,12 +36,9 @@ vector<int> checks(string key, string user_try){
                 times[i]++;
             }
         }
-    }
-    
-    int f_correct=0;
-    for(int i=0;i<string_len;i++){
         f_correct += full_correct[i];
     }
+    
     return vector<int>{correct,f_correct};
 }
 
