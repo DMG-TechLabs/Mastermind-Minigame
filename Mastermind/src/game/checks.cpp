@@ -1,27 +1,26 @@
 #include "checks.h"
 #include <iostream>
 
-
 vector<int> checks(string key, string user_try){
-    int correct = 0;
-    int full_correct = 0;
     int string_len = key.length();
+    int full_correct[string_len];
+    int correct = 0;
+
     for(int i=0;i<string_len;i++){
-        if(key.at(i) == user_try.at(i)) {
-            full_correct++;
-            correct++;
-            continue;  
-        }
+        full_correct[i] = 0;
+        if(key.at(i) == user_try.at(i)) full_correct[i] = 1; 
+    }
 
+    for(int i=0;i<string_len;i++){
         for(int j=0;j<string_len;j++){
-            if(key.at(j) == user_try.at(i) && i != j) {
-                correct++;
-                // cout << endl << key.at(j) << ":"+j << endl << user_try.at(i) << ":"+i << endl;
-
-                break;
-            }
+            if(user_try.at(i) == key.at(j) && full_correct[j] != 1) correct++;
         }
     }
-    int only_correct_char = correct - full_correct;
-    return vector<int>{only_correct_char,full_correct,};
+    
+    int f_correct=0;
+    for(int i=0;i<string_len;i++){
+        f_correct += full_correct[i];
+    }
+    return vector<int>{correct,f_correct};
 }
+

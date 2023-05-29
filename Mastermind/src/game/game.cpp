@@ -61,7 +61,7 @@ string render(string word) {
 }
 
 void start() {
-    std::string key = "abaaaaaa";
+    std::string key = "abcd";
     std::string user_try = render(key);
     vector<int> correct = checks(key, user_try);
 
