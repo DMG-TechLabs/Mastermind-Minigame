@@ -8,6 +8,7 @@
 
 void printCharacter(int selectedItem, int index, int color, char character);
 string makeWord(int *indexes, string characters, int length);
+void clearRow(int num);
 
 string render(string word, string characters) {
     int color = 1;
@@ -23,7 +24,7 @@ string render(string word, string characters) {
     }
 
     while (true) {
-        Text::clearScreen();
+        clearRow(numOfCharacters);
         for (int i = 0; i < numOfCharacters; i++) {
             printCharacter(selected, i, color, characters.at(indexes[i]));
             // cout << characters.at(*indexes.at(i)) << " ";
@@ -48,10 +49,8 @@ string render(string word, string characters) {
                                         ? characters.size() - 1
                                         : indexes[selected] - 1;
                 break;
-            case ENTER:  // Enter
-                // delete indexes;
+            case ENTER:
                 enableInputBuffering();
-
                 return makeWord(indexes, characters, numOfCharacters);
         }
     }
@@ -60,15 +59,19 @@ string render(string word, string characters) {
 }
 
 void start(string key, string characters) {
-    std::string user_try = render(key, characters);
-    vector<int> correct = checks(key, user_try);
+    Text::clearScreen();
+    std::string user_try = "";
 
-    cout << endl << user_try << endl;
-    cout << correct.at(0) << " correct but in the wrong position" << endl;
-    cout << correct.at(1) << " correct and in the correct posstion" << endl;
-     
+    while(user_try != key){
+        user_try = render(key, characters);
+        vector<int> correct = checks(key, user_try);
+
+        cout << endl << correct.at(0) << " correct but in the wrong position" << endl;
+        cout << correct.at(1) << " correct and in the correct posstion" << endl << endl;
+    }
+
+    cout << Text::green + "\n\nPassword cracked!" + Text::normal << endl;
 }
-
 
 void printCharacter(int selectedItem, int index, int color, char character) {
     std::cout << (selectedItem == index
@@ -76,7 +79,6 @@ void printCharacter(int selectedItem, int index, int color, char character) {
                       : Text::blue + character + Text::normal)
               << " ";
 }
-
 
 string makeWord(int *indexes, string characters, int length) {
     string word = "";
@@ -86,4 +88,14 @@ string makeWord(int *indexes, string characters, int length) {
     }
 
     return word;
+}
+
+void clearRow(int num) {
+    string s = "";
+
+    for (int i = 0; i < num*2; i++) {
+        s += "\b";
+    }
+
+    cout << s;
 }
