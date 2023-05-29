@@ -9,8 +9,7 @@
 void printCharacter(int selectedItem, int index, int color, char character);
 string makeWord(int *indexes, string characters, int length);
 
-string render(string word) {
-    string characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+string render(string word, string characters) {
     int color = 1;
     int numOfCharacters = word.length();
     int selected = 0;
@@ -60,9 +59,8 @@ string render(string word) {
     return "Error";
 }
 
-void start() {
-    std::string key = "abcd";
-    std::string user_try = render(key);
+void start(string key, string characters) {
+    std::string user_try = render(key, characters);
     vector<int> correct = checks(key, user_try);
 
     cout << endl << user_try << endl;

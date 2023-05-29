@@ -4,7 +4,10 @@
 #include "./game/game.h"
 
 int main(){
-    start();
+    std::string characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    std::string key = "abcdef";
+    start(key, characters);
 
 
     return 0;

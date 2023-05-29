@@ -3,5 +3,5 @@
 #include <iostream>
 #include <string>
 
-void start();
-std::string render(std::string word);
+void start(std::string key, std::string characters);
+std::string render(std::string word, std::string characters);
