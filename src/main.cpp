@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "./game/game.h"
+#include "game.h"
 
 int main(){
     std::string characters = "abcdefghijklmnopqrstuvwxyz0123456789";

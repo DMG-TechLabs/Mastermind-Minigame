@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "../text/text.h"
-#include "../ui/controls.h"
+#include "text.h"
+#include "controls.h"
 #include "checks.h"
 
 void printCharacter(int selectedItem, int index, int color, char character);
