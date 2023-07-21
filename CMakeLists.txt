@@ -24,5 +24,5 @@ set(HEADERS
     include/text.h
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-# add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+# add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
