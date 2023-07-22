@@ -58,7 +58,8 @@ string render(string word, string characters) {
     return "Error";
 }
 
-void start(string key, string characters) {
+
+bool start(string key, string characters) {
     Text::clearScreen();
     std::string user_try = "";
 
@@ -71,6 +72,7 @@ void start(string key, string characters) {
     }
 
     cout << Text::green + "\n\nPassword cracked!" + Text::normal << endl;
+    return true;
 }
 
 void printCharacter(int selectedItem, int index, int color, char character) {
