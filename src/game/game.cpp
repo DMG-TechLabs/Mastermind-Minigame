@@ -72,6 +72,7 @@ bool start(string key, string characters) {
     }
 
     cout << Text::green + "\n\nPassword cracked!" + Text::normal << endl;
+	enableInputBuffering();
     return true;
 }
 
